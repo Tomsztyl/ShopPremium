@@ -7,6 +7,7 @@ public class ArsenalBox : MonoBehaviour
     [SerializeField] List<ShopItems> shopItems = new List<ShopItems>();
     [SerializeField] private GameObject frameForItem = null;
 
+
     private void Start()
     {
         AddListItemDisplay();

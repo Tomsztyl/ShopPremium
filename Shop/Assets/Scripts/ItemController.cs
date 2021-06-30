@@ -14,6 +14,7 @@ public class ItemController : MonoBehaviour
     ItemAssistant ItemAssistant;
     ShopManager ShopManager;
 
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -45,8 +46,11 @@ public class ItemController : MonoBehaviour
         if (ShopManager!=null)
         {
             float calculateBuyItem = ShopManager.GetMoney()- shopItems.GetValueMoneyItem();
-            if (calculateBuyItem > 0)
+            if (calculateBuyItem >= 0)
+            {
                 ShopManager.SubbstractionMoney(shopItems.GetValueMoneyItem());
+                
+            }
             else
                 Debug.LogError("You don't have money");
         }
@@ -55,4 +59,5 @@ public class ItemController : MonoBehaviour
     {
         this.shopItems = shopItems;
     }
+
 }

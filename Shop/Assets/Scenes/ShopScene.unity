@@ -349,13 +349,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1818179103}
         m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
-        m_MethodName: AddMoneyBtn
-        m_Mode: 1
+        m_MethodName: AddMoneyCount
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1000
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -504,6 +504,7 @@ RectTransform:
   m_Children:
   - {fileID: 2078356720}
   - {fileID: 1710454734}
+  - {fileID: 1081142521}
   m_Father: {fileID: 1901989233}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -738,7 +739,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 724196031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1818179103}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: SwitchBoxShop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1818179104}
+        m_TargetAssemblyTypeName: EquipmentBox, Assembly-CSharp
+        m_MethodName: AddItemToArsenalEquipment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1081142517}
+        m_TargetAssemblyTypeName: ArsenalBox, Assembly-CSharp
+        m_MethodName: AddListItemButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &724196031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,6 +1171,163 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1081142515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081142521}
+  - component: {fileID: 1081142520}
+  - component: {fileID: 1081142519}
+  - component: {fileID: 1081142518}
+  - component: {fileID: 1081142516}
+  - component: {fileID: 1081142517}
+  m_Layer: 5
+  m_Name: EquipmentBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1081142516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081142515}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1081142517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081142515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3df54d79ad3ed843a5533cf429e326a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shopItems:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 0
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 0
+    _keyValues: 
+    _keys: 
+    _values: []
+  _frameForItem: {fileID: 633350766434971899, guid: 018909fc0e1357a4d9301c5e4258bfaa, type: 3}
+--- !u!222 &1081142518
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081142515}
+  m_CullTransparentMesh: 1
+--- !u!114 &1081142519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081142515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
+--- !u!114 &1081142520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081142515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 4.04
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!224 &1081142521
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081142515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 657198777}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.0000137486895}
+  m_SizeDelta: {x: -1427.4246, y: 482.05}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1113863567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1410,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1113863570}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1818179103}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: SwitchBoxShop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1710454736}
+        m_TargetAssemblyTypeName: ArsenalBox, Assembly-CSharp
+        m_MethodName: AddListItemButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1113863570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1687,10 +1905,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3df54d79ad3ed843a5533cf429e326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopItems:
-  - {fileID: 11400000, guid: 9d05dde048752cd4baaf21aed2a01b62, type: 2}
-  - {fileID: 11400000, guid: 81a3f5a735811044dbbb9910a602fceb, type: 2}
-  frameForItem: {fileID: 633350766434971899, guid: 95cdfc295847a3e4496d3432f791f946, type: 3}
+  _shopItems:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 0100000002000000
+    _keys: 0100000002000000
+    _values:
+    - _itemEquipment: {fileID: 11400000, guid: c569efe6b43288542bf6df5e18c1b6ad, type: 2}
+      _countItemEquipment: 0
+    - _itemEquipment: {fileID: 11400000, guid: 10d9b33cbec80cd4ebc15885e129ed15, type: 2}
+      _countItemEquipment: 0
+  _frameForItem: {fileID: 633350766434971899, guid: 95cdfc295847a3e4496d3432f791f946, type: 3}
 --- !u!222 &1710454737
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1752,6 +1997,7 @@ GameObject:
   - component: {fileID: 1818179100}
   - component: {fileID: 1818179099}
   - component: {fileID: 1818179103}
+  - component: {fileID: 1818179104}
   m_Layer: 5
   m_Name: ShopUI
   m_TagString: Untagged
@@ -1854,8 +2100,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  addMoneyBtn: 1000
   textMoney: {fileID: 979258988}
+  _weaponeShopScrollRect: {fileID: 1901989234}
+  _boxRifle: {fileID: 2078356719}
+  _boxGrenade: {fileID: 1710454733}
+  _boxEquipment: {fileID: 1081142515}
+--- !u!114 &1818179104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818179098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd058ca4019e8fb4aaae5648dd383dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equipment:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues: 
+    _keys: 
+    _values: []
+  _arsenalShopDisplay: {fileID: 1081142517}
 --- !u!1 &1901989232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,7 +2333,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2045789419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1818179103}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: SwitchBoxShop
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2078356725}
+        m_TargetAssemblyTypeName: ArsenalBox, Assembly-CSharp
+        m_MethodName: AddListItemButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2045789419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,7 +2416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2078356720
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2122,7 +2434,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000061035156, y: -0.0000137486895}
-  m_SizeDelta: {x: 0, y: 482.05}
+  m_SizeDelta: {x: -1427.4246, y: 482.05}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2078356721
 MonoBehaviour:
@@ -2214,10 +2526,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3df54d79ad3ed843a5533cf429e326a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopItems:
-  - {fileID: 11400000, guid: 9d05dde048752cd4baaf21aed2a01b62, type: 2}
-  - {fileID: 11400000, guid: 81a3f5a735811044dbbb9910a602fceb, type: 2}
-  frameForItem: {fileID: 633350766434971899, guid: 95cdfc295847a3e4496d3432f791f946, type: 3}
+  _shopItems:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 0
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 0
+    _keyValues: 0100000002000000
+    _keys: 0100000002000000
+    _values:
+    - _itemEquipment: {fileID: 11400000, guid: 81a3f5a735811044dbbb9910a602fceb, type: 2}
+      _countItemEquipment: 0
+    - _itemEquipment: {fileID: 11400000, guid: 9d05dde048752cd4baaf21aed2a01b62, type: 2}
+      _countItemEquipment: 0
+  _frameForItem: {fileID: 633350766434971899, guid: 95cdfc295847a3e4496d3432f791f946, type: 3}
 --- !u!1 &2087429102
 GameObject:
   m_ObjectHideFlags: 0

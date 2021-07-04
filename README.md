@@ -1,5 +1,5 @@
 # ShopPremium
-  This is a game made by Unity/Mobile/PhpMyAdmin/PHP
+  This is a game made by Unity
  
  Unity Version: 2020.3.7f1
 
@@ -16,3 +16,4 @@ Equipment:
 ![image](https://user-images.githubusercontent.com/60610578/124387964-cf155980-dce0-11eb-83fe-b812a02d15fd.png)
 
 
+#PROJECTS ARE MADE FOR EDUCATIONAL PURPOSES.

@@ -1,5 +1,5 @@
 # ShopPremium
-  This is a game made by Unity
+  This is a game made by Unity/Mobile
  
  Unity Version: 2020.3.7f1
 

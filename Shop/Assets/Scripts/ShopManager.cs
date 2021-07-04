@@ -1,16 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ShopManager : MonoBehaviour
 {
+    [Header("Store properties")]
+    [Tooltip("The player's money")]
     [SerializeField] private float money = 0;
-    [SerializeField] private float addMoneyBtn = 1000;
-
+    [Tooltip("Text where is display money")]
     [SerializeField] private Text textMoney = null;
 
-    ItemAssistant moneyDisplay;
+
+    [Header("Store tabs")]
+    [Tooltip("Controller to control the shop box")]
+    [SerializeField] private ScrollRect _weaponeShopScrollRect;
+    [Tooltip("The box where the rifles are stored")]
+    [SerializeField] private GameObject _boxRifle;
+    [Tooltip("The box where the grenade are stored")]
+    [SerializeField] private GameObject _boxGrenade;
+    [Tooltip("The box where is equipment box")]
+    [SerializeField] private GameObject _boxEquipment;
+
+    ItemAssistant moneyDisplay;                       //using item assistan to manage item   
 
     private void Start()
     {
@@ -21,11 +32,7 @@ public class ShopManager : MonoBehaviour
     {
         moneyDisplay.PrintMoneyValue(textMoney, money);
     }
-
-    public void AddMoneyBtn()
-    {
-        money += addMoneyBtn;
-    }
+    #region Manage Money
     public void AddMoneyCount(float countadd)
     {
         money+=countadd;
@@ -38,37 +45,48 @@ public class ShopManager : MonoBehaviour
     {
         return money;
     }
+    #endregion
+
+    /// <summary>
+    /// Changes the current shop box
+    /// </summary>
+    /// <param name="buttonIndex">The index is set in the OnClick button</param>
+    public void SwitchBoxShop(int buttonIndex)
+    {
+        if (_weaponeShopScrollRect!=null)
+        {
+            switch (buttonIndex)
+            {
+                case 0:
+                    if (_boxRifle != null)
+                    {
+                        _boxRifle.SetActive(true);
+                        _weaponeShopScrollRect.content = _boxRifle.GetComponent<RectTransform>();
+                        _boxGrenade.SetActive(false);
+                        _boxEquipment.SetActive(false);
+                    }
+                    break;
+                case 1:
+                    if (_boxGrenade != null)
+                    {
+                        _boxRifle.SetActive(false);
+                        _boxGrenade.SetActive(true);
+                        _weaponeShopScrollRect.content = _boxGrenade.GetComponent<RectTransform>();
+                        _boxEquipment.SetActive(false);
+                    }
+                    break;
+                case 2:
+                    if (_boxEquipment != null)
+                    {
+                        _boxRifle.SetActive(false);
+                        _boxGrenade.SetActive(false);
+                        _boxEquipment.SetActive(true);
+                        _weaponeShopScrollRect.content = _boxEquipment.GetComponent<RectTransform>();
+                    }
+                    break;
+            }
+        }       
+    }
 
 
-}
-public class ItemAssistant
-{
-    public void PrintNameItem(Text nameItem,string name)
-    {
-        if (nameItem!=null)
-        {
-            nameItem.text = name;
-        }
-    }
-    public void PrintCountItem(Text countItem,int count)
-    {
-        if (countItem!=null)
-        {
-            countItem.text = string.Format("{0}", count);
-        }
-    }
-    public void PrintMoneyValue(Text moneyValue, float money)
-    {
-        if (moneyValue != null)
-        {
-            moneyValue.text = string.Format("{0}$", money);
-        }
-    }
-    public void PrintSpriteItem(Image imageItem,Sprite spriteItem)
-    {
-        if (imageItem!=null)
-        {
-            imageItem.sprite = spriteItem;
-        }
-    }
 }
